@@ -1,0 +1,75 @@
+.pointer{
+    cursor: pointer;
+    display: inline;
+    border: 1px solid rgb(87, 120, 253);
+    border-radius: 3px;
+}
+
+#navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: rgb(87, 120, 253);
+    display: inline;
+    float: right;
+}
+
+#navcontainer{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height:10vh;
+    background-color: rgb(42, 42, 42);
+    border: 1px solid rgb(42, 42, 42);
+    border-radius: 6px;
+}
+
+#navheader{
+    color:rgb(87, 120, 253);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(87, 120, 253)
+}
+
+#login{
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    background-color:rgb(42, 42, 42);
+    width: 30%;
+    height: 30%;
+    border: 1px solid rgb(42, 42, 42);
+    border-radius:6px;
+}
+
+#loginheader{
+    color: rgb(87, 120, 253);
+    text-align: center;
+}
+
+#username{
+    margin: auto;
+    display: block;
+}
+
+#password{
+    margin: auto;
+    display: block;
+}
+
+.account{
+    cursor: pointer;
+    display: inline;
+    border: 1px solid rgb(87, 120, 253);
+    border-radius: 3px;
+}
+
+#loginbtns{
+    width:50%;
+    top:25%;
+    left:25%;
+}
