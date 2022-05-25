@@ -100,6 +100,23 @@ app.get("/api/posts", async (req, res) => {
     }
 })
 
+app.get("/api/posts/:id", async(req, res) => {
+    let data;
+    let worked;
+    try{
+        data = await db.query(`SELECT posts_all.post, posts_all.date, posts_all.user_id, posts_all.id, profile.user_name FROM posts_all INNER JOIN profile ON posts_all.user_id=profile.id WHERE user_id = ${req.params.id} ORDER BY date DESC;`)
+        worked = true;
+    } catch(err){
+        console.error(err);
+        worked = false;
+    }
+    if(worked === true){
+        res.json(data.rows);
+    } else if(worked === false){
+        res.json('An error has occured.')
+    }
+})
+
 app.listen(PORT, () => {
   console.log(`listening on Port ${PORT}`);
 });

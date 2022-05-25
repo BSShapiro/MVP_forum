@@ -65,13 +65,19 @@ function handleData(data){
     console.log(data);
     if(data === 'Account does not exist, please make a new account.'){
         window.alert('Account does not exist, please make a new account.')
+        return undefined;
     } else if(data === 'Password is incorrect.'){
         window.alert('Password is incorrect')
+        return undefined;
     } else if(data === 'An error has occured.'){
         window.alert('An error has occured.')
+        return undefined;
     } else if(data === 'Username already exists, please enter a new username.'){
         window.alert('Username already exists, please enter a new username.')
+        return undefined;
     } else{
+        let profilePosts = document.getElementById('profileposts');
+        profilePosts.style.display = 'none';
         let nav = document.getElementById('navcontainer');
         nav.style.display = 'block';
         current = data.id;
@@ -86,6 +92,11 @@ function handleData(data){
         let makepost = document.getElementById('makepost');
         makepost.style.display = 'block';
     }
+    window.setInterval(()=>{
+        fetch('http://localhost:3000/api/posts')
+          .then(response => response.json())
+          .then(exploreData)
+    }, 500)
     makePost();
 }
 
@@ -124,6 +135,8 @@ function appendPost(data){
 function explore(){
     let data;
     let exploreBtn = document.getElementById('explore');
+    let postArea = document.getElementById('postarea');
+    postArea.style.display = 'block';
     exploreBtn.addEventListener('click', () => {
         fetch('http://localhost:3000/api/posts')
           .then(response => response.json())
@@ -134,10 +147,82 @@ function explore(){
 function exploreData(data){
     let postArr = [];
     let userArr = [];
+    let dateArr = [];
+    let useridArr = [];
+    let postArea = document.getElementById('postarea');
+    postarea.innerHTML = '';
     for(let i = 0; i < data.length; i++){
+        postArr.push(data[i].post);
+        userArr.push(data[i].user_name);
+        dateArr.push(data[i].date);
+        useridArr.push(data[i].user_id);
         
+        let mainPost = document.createElement('div');
+        let newPost = document.createElement('div');
+        let postDate = document.createElement('div');
+        let userPost = document.createElement('div');
+
+
+        userPost.append('@' + userArr[i]);
+        newPost.append(postArr[i]);
+        postDate.append(dateArr[i]);
+
+        mainPost.append(userPost);
+        mainPost.append(newPost);
+        mainPost.append(postDate);
+        //mainPost.className = 'poststyle';
+        mainPost.className = 'postself';
+        
+        postArea.appendChild(mainPost);
+        postArea.className = 'poststyle';
     }
 }
+function profileBtn(){
+    let profileBtn = document.getElementById('profile');
+    profileBtn.addEventListener('click', () => {
+        fetch(`http://localhost:3000/api/posts/${current}`)
+          .then((response) => response.json())
+          .then(profileFunc)
+    })
+}
+
+function profileFunc(data){
+    let postArr = [];
+    let userArr = [];
+    let dateArr = [];
+    let useridArr = [];
+    let profilePosts = document.getElementById('profileposts');
+    profilePosts.innerHTML = '';
+    let postArea = document.getElementById('postarea');
+    postArea.style.display = 'none';
+    for(let i = 0; i < data.length; i++){
+        postArr.push(data[i].post);
+        userArr.push(data[i].user_name);
+        dateArr.push(data[i].date);
+        useridArr.push(data[i].user_id);
+        
+        let mainPost = document.createElement('div');
+        let newPost = document.createElement('div');
+        let postDate = document.createElement('div');
+        let userPost = document.createElement('div');
+
+
+        userPost.append('@' + userArr[i]);
+        newPost.append(postArr[i]);
+        postDate.append(dateArr[i]);
+
+        mainPost.append(userPost);
+        mainPost.append(newPost);
+        mainPost.append(postDate);
+        //mainPost.className = 'poststyle';
+        mainPost.className = 'postself';
+        
+        profilePosts.appendChild(mainPost);
+        profilePosts.className = 'poststyle';
+    }
+}
+
+profileBtn();
 
 explore();
 
