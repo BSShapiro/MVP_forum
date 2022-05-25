@@ -203,6 +203,7 @@ function profileFunc(data){
     let userArr = [];
     let dateArr = [];
     let useridArr = [];
+    let postIdArr = [];
     let profilePosts = document.getElementById('profileposts');
     profilePosts.innerHTML = '';
     for(let i = 0; i < data.length; i++){
@@ -210,6 +211,7 @@ function profileFunc(data){
         userArr.push(data[i].user_name);
         dateArr.push(data[i].date);
         useridArr.push(data[i].user_id);
+        postIdArr.push(data[i].id)
         
         let mainPost = document.createElement('div');
         let newPost = document.createElement('div');
@@ -227,17 +229,44 @@ function profileFunc(data){
 
         newPost.style.textAlign = 'center';
         postDate.style.float = 'right';
+
         //mainPost.className = 'poststyle';
         mainPost.className = 'postself';
+
         let deleteBtn = document.createElement('div');
         deleteBtn.textContent = 'Delete';
         deleteBtn.className = 'btn';
+        deleteBtn.id = postIdArr[i];
+        deleteBtn.addEventListener('click', (e) => {
+            fetch(`http://localhost:3000/api/post/${e.target.id}`, {
+                method: 'DELETE',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              })
+
+            })
 
         mainPost.append(deleteBtn);
 
         let updateBtn = document.createElement('div');
         updateBtn.textContent = 'Update';
         updateBtn.className = 'btn';
+        updateBtn.id = postIdArr[i];
+
+        updateBtn.addEventListener('click', (e) =>{
+            let update = window.prompt('Type in your update to your post here:')
+            let data = {
+                post: update
+            }
+            fetch(`http://localhost:3000/api/posts/${e.target.id}`,{
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+        })
 
         mainPost.append(updateBtn);
 

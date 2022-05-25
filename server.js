@@ -116,6 +116,24 @@ app.get("/api/posts/:id", async(req, res) => {
     }
 })
 
+app.patch('/api/posts/:id', async (req, res) => {
+    try{
+        await db.query(`UPDATE posts_all SET post = '${req.body.post}' WHERE id = ${req.params.id};`)
+    } catch (err){
+        console.error(err);
+    }
+})
+
+app.delete('/api/post/:id', async (req, res) =>{
+    try{
+        await db.query(`DELETE FROM posts_all WHERE id = ${req.params.id}`,)
+        res.json('Deleted')
+    } catch(err){
+        console.error(err);
+        res.status(500).json('An error has occurred.')
+    }
+})
+
 app.listen(PORT, () => {
   console.log(`listening on Port ${PORT}`);
 });
