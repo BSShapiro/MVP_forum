@@ -257,6 +257,7 @@ function profileFunc(data){
         updateBtn.addEventListener('click', (e) =>{
             let update = window.prompt('Type in your update to your post here:')
             if(update.length === 0){
+                window.alert('Update can not be blank.')
                 return undefined;
             }
             let data = {
