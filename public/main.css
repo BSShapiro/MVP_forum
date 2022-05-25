@@ -29,6 +29,7 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    font-size: 3em;
 }
 
 body{
@@ -175,5 +176,9 @@ html *
 }
 
 #postarea{
+    margin-top: 30vh;
+}
+
+#profileposts{
     margin-top: 30vh;
 }
