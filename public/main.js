@@ -256,6 +256,9 @@ function profileFunc(data){
 
         updateBtn.addEventListener('click', (e) =>{
             let update = window.prompt('Type in your update to your post here:')
+            if(update.length === 0){
+                return undefined;
+            }
             let data = {
                 post: update
             }
