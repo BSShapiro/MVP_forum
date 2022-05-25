@@ -64,7 +64,41 @@ app.post("/api/create", async (req, res) => {
     }
 })
 
+app.post("/api/post", async (req, res) => {
+    let worked;
+    let data;
+    let date = moment().format('yyyy-MM-DD HH:mm:ss');
+    try{
+        await db.query(`INSERT INTO posts_all(post, date, user_id) VALUES ('${req.body.post}', '${date}', ${req.body.user_id});`);
+        data = await db.query(`SELECT * FROM posts_all WHERE date = '${date}';`);
+        worked = true;
+    }catch(err){
+        console.error(err);
+        worked = false;
+    }
+    if(worked === true){
+        res.json(data.rows[0]);
+    } else if(worked === false){
+        res.status(500).json('An error has occured.');
+    }
+})
 
+app.get("/api/posts", async (req, res) => {
+    let worked;
+    let data;
+    try{
+        data = await db.query('SELECT posts_all.post, posts_all.date, posts_all.user_id, posts_all.id, profile.user_name FROM posts_all INNER JOIN profile ON posts_all.user_id=profile.id ORDER BY date DESC;');
+        worked = true;
+    } catch(err){
+        console.error(err);
+        worked = false;
+    }
+    if(worked === true){
+        res.json(data.rows);
+    } else if(worked === false){
+        res.status(500).json('An error has occured.');
+    }
+})
 
 app.listen(PORT, () => {
   console.log(`listening on Port ${PORT}`);

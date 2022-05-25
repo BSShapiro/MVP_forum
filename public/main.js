@@ -1,9 +1,6 @@
 let current;
 
 function getProfile(){
-    // fetch('http://localhost:3000/api/profiles')
-    // .then(response => response.json())
-    // .then(handleData)
     let nav = document.getElementById('navcontainer');
     nav.style.display = 'none';
     let makepost = document.getElementById('makepost');
@@ -12,6 +9,8 @@ function getProfile(){
     let createAccount = document.getElementById('createAccount');
     let username = document.getElementById('username');
     let password = document.getElementById('password');
+    let usernameLogged = document.getElementById('usernamelogged');
+    usernameLogged.style.display = 'none';
 
     loginbtn.addEventListener('click', () =>{
         const data = {
@@ -24,7 +23,7 @@ function getProfile(){
          }
          console.log(data);
          fetch('http://localhost:3000/api/login', {
-          method: 'POST', // or 'PUT'
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -48,7 +47,7 @@ function getProfile(){
         }
          console.log(data);
          fetch('http://localhost:3000/api/create', {
-          method: 'POST', // or 'PUT'
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -76,10 +75,70 @@ function handleData(data){
         let nav = document.getElementById('navcontainer');
         nav.style.display = 'block';
         current = data.id;
+        
+        let usernameLogged = document.getElementById('usernamelogged');
+        usernameLogged.style.display = 'block';
+        usernameLogged.append(`Logged in as: ${data.user_name}`);
 
         let login = document.getElementById('login');
         login.style.display = 'none';
+
+        let makepost = document.getElementById('makepost');
+        makepost.style.display = 'block';
+    }
+    makePost();
+}
+
+function makePost(){
+    let postArea = document.getElementById('post');
+    let postbtn = document.getElementById('postbtn');
+    postbtn.addEventListener('click', () => {
+        data = {
+            post: postArea.value,
+            user_id: current
+        }
+        if(data.post.length === 0){
+            window.alert('Please type a post first.');
+            return undefined;
+        }
+        fetch('http://localhost:3000/api/post', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(appendPost)
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+        postArea.value = '';
+    })
+}
+
+function appendPost(data){
+    
+}
+
+function explore(){
+    let data;
+    let exploreBtn = document.getElementById('explore');
+    exploreBtn.addEventListener('click', () => {
+        fetch('http://localhost:3000/api/posts')
+          .then(response => response.json())
+          .then(exploreData)
+    })    
+}
+
+function exploreData(data){
+    let postArr = [];
+    let userArr = [];
+    for(let i = 0; i < data.length; i++){
+        
     }
 }
+
+explore();
 
 getProfile();

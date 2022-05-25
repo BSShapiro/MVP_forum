@@ -74,3 +74,47 @@ body{
     margin-left: 15%;
     margin-top: 3%;
 }
+
+#makepost{
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    background-color:rgb(42, 42, 42);
+    width: 40%;
+    height: 15%;
+    border: 1px solid rgb(42, 42, 42);
+    border-radius:6px;
+}
+
+#post{
+    width: 80%;
+    height: 60%;
+    margin-top: 1.5%;
+    margin-left: 10%;
+}
+
+#postbtn{
+    color: rgb(87, 120, 253);
+    border: 1px solid rgb(87, 120, 253);
+    border-radius:6px;
+    width: 5%;
+    float: right;
+    position:bottom;
+    margin-top: 16%;
+    margin-right: 3%;
+    cursor: pointer;
+}
+
+.posts{
+    width: 100%;
+    background-color:black ;
+}
+
+#usernamelogged{
+    color:rgb(87, 120, 253);
+    background-color:rgb(42, 42, 42);
+    border: 1px solid rgb(42, 42, 42);
+    margin-top: 5px;
+    width:165px;
+    border-radius: 6px;
+}
