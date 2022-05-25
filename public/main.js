@@ -1,5 +1,5 @@
 let current;
-
+const apiURL = window.location.origin;
 function getProfile(){
     let nav = document.getElementById('navcontainer');
     nav.style.display = 'none';
@@ -22,7 +22,7 @@ function getProfile(){
              return undefined;
          }
          console.log(data);
-         fetch('http://localhost:3000/api/login', {
+         fetch(`${apiURL}/api/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ function getProfile(){
             return undefined;
         }
          console.log(data);
-         fetch('http://localhost:3000/api/create', {
+         fetch(`${apiURL}/api/create`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -94,13 +94,13 @@ function handleData(data){
     }
 
     window.setInterval(()=>{
-        fetch(`http://localhost:3000/api/posts/${current}`)
+        fetch(`${apiURL}/api/posts/${current}`)
           .then(response => response.json())
           .then(profileFunc)
     }, 500)
 
     window.setInterval(()=>{
-        fetch('http://localhost:3000/api/posts')
+        fetch(`${apiURL}/api/posts`)
           .then(response => response.json())
           .then(exploreData)
     }, 500)
@@ -119,7 +119,7 @@ function makePost(){
             window.alert('Please type a post first.');
             return undefined;
         }
-        fetch('http://localhost:3000/api/post', {
+        fetch(`${apiURL}/api/post`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ function explore(){
         let profilePosts = document.getElementById('profileposts');
         profilePosts.style.display = 'none';
         postArea.style.display = 'block';
-        fetch('http://localhost:3000/api/posts')
+        fetch(`${apiURL}/api/posts`)
           .then(response => response.json())
           .then(exploreData)
     })    
@@ -192,7 +192,7 @@ function profileBtn(){
         profilePosts.innerHTML = '';
         let postArea = document.getElementById('postarea');
         postArea.style.display = 'none';
-        fetch(`http://localhost:3000/api/posts/${current}`)
+        fetch(`${apiURL}/api/posts/${current}`)
           .then((response) => response.json())
           .then(profileFunc)
     })
@@ -238,7 +238,7 @@ function profileFunc(data){
         deleteBtn.className = 'btn';
         deleteBtn.id = postIdArr[i];
         deleteBtn.addEventListener('click', (e) => {
-            fetch(`http://localhost:3000/api/post/${e.target.id}`, {
+            fetch(`${apiURL}/api/post/${e.target.id}`, {
                 method: 'DELETE',
                 headers: {
                   'Content-Type': 'application/json',
@@ -259,7 +259,7 @@ function profileFunc(data){
             let data = {
                 post: update
             }
-            fetch(`http://localhost:3000/api/posts/${e.target.id}`,{
+            fetch(`${apiURL}/api/posts/${e.target.id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
