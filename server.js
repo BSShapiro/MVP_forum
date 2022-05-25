@@ -4,16 +4,15 @@ const db = require("./db/conn.js");
 const app = express();
 const client = require("pg/lib/native/client");
 const moment = require("moment");
+const cors = require("cors");
 
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static("public"));
+app.use(cors());
 
-app.get("/", async (req, res) => {
-    
-})
+app.use(express.static("public"));
 
 app.post("/api/login", async (req, res) => {
     let worked;

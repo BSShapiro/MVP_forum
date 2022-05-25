@@ -130,8 +130,20 @@ body{
     border: 1px solid rgb(42, 42, 42);
     border-radius:6px;
     margin-top: 15%;
+    display: block;
 }
 
 .postself{
     margin-top: 10px;
+    height:110px;
+}
+
+.btn{
+    color: rgb(87, 120, 253);
+    border: 1px solid rgb(87, 120, 253);
+    border-radius:6px;
+    width: 9%;
+    float: right;
+    margin-top: 8%;
+    cursor: pointer;
 }

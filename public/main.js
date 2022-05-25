@@ -92,6 +92,13 @@ function handleData(data){
         let makepost = document.getElementById('makepost');
         makepost.style.display = 'block';
     }
+
+    window.setInterval(()=>{
+        fetch(`http://localhost:3000/api/posts/${current}`)
+          .then(response => response.json())
+          .then(profileFunc)
+    }, 500)
+
     window.setInterval(()=>{
         fetch('http://localhost:3000/api/posts')
           .then(response => response.json())
@@ -120,7 +127,6 @@ function makePost(){
           body: JSON.stringify(data),
         })
         .then(response => response.json())
-        .then(appendPost)
         .catch((error) => {
           console.error('Error:', error);
         });
@@ -128,16 +134,14 @@ function makePost(){
     })
 }
 
-function appendPost(data){
-    
-}
-
 function explore(){
     let data;
     let exploreBtn = document.getElementById('explore');
     let postArea = document.getElementById('postarea');
-    postArea.style.display = 'block';
     exploreBtn.addEventListener('click', () => {
+        let profilePosts = document.getElementById('profileposts');
+        profilePosts.style.display = 'none';
+        postArea.style.display = 'block';
         fetch('http://localhost:3000/api/posts')
           .then(response => response.json())
           .then(exploreData)
@@ -170,6 +174,9 @@ function exploreData(data){
         mainPost.append(userPost);
         mainPost.append(newPost);
         mainPost.append(postDate);
+
+        newPost.style.textAlign = 'center';
+        postDate.style.float = 'right';
         //mainPost.className = 'poststyle';
         mainPost.className = 'postself';
         
@@ -180,6 +187,11 @@ function exploreData(data){
 function profileBtn(){
     let profileBtn = document.getElementById('profile');
     profileBtn.addEventListener('click', () => {
+        let profilePosts = document.getElementById('profileposts');
+        profilePosts.style.display = 'block';
+        profilePosts.innerHTML = '';
+        let postArea = document.getElementById('postarea');
+        postArea.style.display = 'none';
         fetch(`http://localhost:3000/api/posts/${current}`)
           .then((response) => response.json())
           .then(profileFunc)
@@ -193,8 +205,6 @@ function profileFunc(data){
     let useridArr = [];
     let profilePosts = document.getElementById('profileposts');
     profilePosts.innerHTML = '';
-    let postArea = document.getElementById('postarea');
-    postArea.style.display = 'none';
     for(let i = 0; i < data.length; i++){
         postArr.push(data[i].post);
         userArr.push(data[i].user_name);
@@ -214,11 +224,27 @@ function profileFunc(data){
         mainPost.append(userPost);
         mainPost.append(newPost);
         mainPost.append(postDate);
+
+        newPost.style.textAlign = 'center';
+        postDate.style.float = 'right';
         //mainPost.className = 'poststyle';
         mainPost.className = 'postself';
-        
+        let deleteBtn = document.createElement('div');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.className = 'btn';
+
+        mainPost.append(deleteBtn);
+
+        let updateBtn = document.createElement('div');
+        updateBtn.textContent = 'Update';
+        updateBtn.className = 'btn';
+
+        mainPost.append(updateBtn);
+
         profilePosts.appendChild(mainPost);
         profilePosts.className = 'poststyle';
+
+        //delete
     }
 }
 
