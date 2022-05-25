@@ -32,7 +32,10 @@
 }
 
 body{
-    background-color: rgb(87, 120, 253)
+    background-color: rgb(174, 174, 175);
+    min-height: 400px;
+    margin-bottom: 100px;
+    clear: both;
 }
 
 #login{
@@ -134,8 +137,10 @@ body{
 }
 
 .postself{
-    margin-top: 10px;
+    margin-top: 5px;
     height:110px;
+    border:1px solid rgb(87, 120, 253);
+    border-radius:6px;
 }
 
 .btn{
@@ -146,4 +151,20 @@ body{
     float: right;
     margin-top: 8%;
     cursor: pointer;
+}
+
+footer{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position:fixed;
+    color: rgb(87, 120, 253);
+    background-color:rgb(42, 42, 42);
+    border: 1px solid rgb(42, 42, 42);
+    border-radius:6px;
+    width: 99%;
+    bottom: 0;
+    opacity: .9;
+    margin-top: 6px;
+    height: 40px;
 }
