@@ -54,6 +54,7 @@ body{
     height: 30vh;
     max-width: 700px;
     max-height: 400px;
+    overflow: auto;
 }
 
 #login::after{
@@ -176,6 +177,7 @@ body{
     display: block;
     min-width: 150px;
     max-width: 500px;
+    overflow: auto;
 }
 
 .poststyle::after{
@@ -190,6 +192,7 @@ body{
     border-radius:6px;
     height:13.75vh;
     max-height: 150px;
+    overflow:auto;
 }
 
 .postself::after{
