@@ -54,7 +54,9 @@ body{
     height: 30vh;
     max-width: 700px;
     max-height: 400px;
-    overflow: auto;
+    content: "";
+    clear: both;
+    display: table;
 }
 
 #loginheader{
@@ -86,7 +88,6 @@ body{
     margin-top: 3%;
     padding-left: auto;
     padding-right: auto;
-    overflow: auto;
 }
 
 #loginbtn{
@@ -173,7 +174,9 @@ body{
     display: block;
     min-width: 150px;
     max-width: 500px;
-    overflow: auto;
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .postself{
@@ -182,7 +185,9 @@ body{
     border-radius:6px;
     height:13.75vh;
     max-height: 150px;
-    overflow: auto;
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .btn{
