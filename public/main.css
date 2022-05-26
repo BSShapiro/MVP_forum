@@ -156,7 +156,7 @@ body{
 .poststyle{
     position: relative;
     top: 50%;
-    left: 30%;
+    left: 30.25%;
     color: rgb(87, 120, 253);
     background-color:rgb(42, 42, 42);
     width: 40%;
@@ -170,7 +170,6 @@ body{
 
 .postself{
     margin-top: 5px;
-    height:110px;
     border:10px solid rgb(87, 120, 253);
     border-radius:6px;
     height:15vh;
