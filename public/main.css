@@ -183,7 +183,7 @@ body{
     float: left;
     cursor: pointer;
     padding-right: auto;
-    margin-bottom: 4.5vh;
+    margin-top: 3.5vh;
 }
 
 .btn:hover{
@@ -220,7 +220,7 @@ html *
 }
 
 .postdate{
-    margin-top: 2vh;
+    margin-top: 3.5vh;
 }
 
 .postcontent{
