@@ -135,13 +135,15 @@ body{
     border-radius:6px;
     margin-top: 15%;
     display: block;
+    
 }
 
 .postself{
     margin-top: 5px;
     height:110px;
-    border:1px solid rgb(87, 120, 253);
+    border:10px solid rgb(87, 120, 253);
     border-radius:6px;
+    height:12vh;
 }
 
 .btn{
@@ -149,9 +151,10 @@ body{
     border: 1px solid rgb(87, 120, 253);
     border-radius:6px;
     width: fit-content;
-    float: right;
-    margin-top: 8%;
+    float: left;
     cursor: pointer;
+    padding-right: auto;
+    margin-bottom: 4.5vh;
 }
 
 footer{
@@ -181,4 +184,12 @@ html *
 
 #profileposts{
     margin-top: 30vh;
+}
+
+.postdate{
+    margin-top: 2vh;
+}
+
+.postcontent{
+    margin-top: 2vh;
 }
