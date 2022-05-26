@@ -240,4 +240,5 @@ html *
 
 .postcontent{
     margin-top: 2vh;
+    min-height: 1.5vh;
 }
