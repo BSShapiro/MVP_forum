@@ -171,6 +171,9 @@ function exploreData(data){
         newPost.append(postArr[i]);
         postDate.append(dateArr[i]);
 
+        postDate.className = 'postdate';
+        newPost.className = 'postcontent';
+
         mainPost.append(userPost);
         mainPost.append(newPost);
         mainPost.append(postDate);
@@ -222,6 +225,9 @@ function profileFunc(data){
         userPost.append('@' + userArr[i]);
         newPost.append(postArr[i]);
         postDate.append(dateArr[i]);
+
+        postDate.className = 'postdate';
+        newPost.className = 'postcontent';
 
         mainPost.append(userPost);
         mainPost.append(newPost);
