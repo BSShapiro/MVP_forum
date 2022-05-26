@@ -5,6 +5,10 @@
     border-radius: 3px;
 }
 
+.pointer:hover{
+    opacity:.5;
+}
+
 #navbar{
     list-style-type: none;
     margin: 0;
@@ -81,6 +85,26 @@ body{
     padding-right: auto;
 }
 
+#loginbtn{
+    padding-right: auto;
+    display: inline;
+}
+
+#loginbtn:hover{
+    opacity: .5;
+}
+
+#createAccount{
+    padding-left:auto;
+    display: inline;
+}
+
+#createAccount:hover{
+    opacity: .5;
+}
+
+
+
 #makepost{
     position: absolute;
     top: 20%;
@@ -109,6 +133,10 @@ body{
     float: right;
     margin-right: 3%;
     cursor: pointer;
+}
+
+#postbtn:hover{
+    opacity: .5;
 }
 
 .posts{
@@ -157,6 +185,10 @@ body{
     cursor: pointer;
     padding-right: auto;
     margin-bottom: 4.5vh;
+}
+
+.btn:hover{
+    opacity: .5;
 }
 
 footer{
