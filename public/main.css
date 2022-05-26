@@ -167,9 +167,9 @@ body{
     height: 15%;
     border: 1px solid rgb(42, 42, 42);
     border-radius:6px;
-    margin-top: 15%;
+    margin-top: 30vh;
     display: block;
-    min-width: 200px;
+    min-width: 150px;
     max-width: 500px;
 }
 
@@ -216,12 +216,6 @@ footer{
 html *
 {
    font-family: 'Courier New', Courier, monospace !important;
-}
-
-#postarea{
-    margin-top: 30vh;
-    min-width: 400px;
-    max-width: 500px;
 }
 
 #profileposts{
