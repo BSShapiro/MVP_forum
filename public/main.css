@@ -173,7 +173,7 @@ body{
     height:110px;
     border:10px solid rgb(87, 120, 253);
     border-radius:6px;
-    height:12vh;
+    height:15vh;
 }
 
 .btn{
@@ -226,4 +226,7 @@ html *
 
 .postcontent{
     margin-top: 2vh;
+    width:fit-content;
+    height:fit-content;
+    margin-left: 15vw;
 }
