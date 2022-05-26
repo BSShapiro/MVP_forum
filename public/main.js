@@ -97,13 +97,13 @@ function handleData(data){
         fetch(`${apiURL}/api/posts/${current}`)
           .then(response => response.json())
           .then(profileFunc)
-    }, 1000)
+    }, 3000)
 
     window.setInterval(()=>{
         fetch(`${apiURL}/api/posts`)
           .then(response => response.json())
           .then(exploreData)
-    }, 1000)
+    }, 3000)
     makePost();
 }
 
