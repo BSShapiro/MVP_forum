@@ -52,7 +52,7 @@ body{
     border: 1px solid rgb(42, 42, 42);
     border-radius:6px;
     height: 30vh;
-    max-width: 700px;
+    min-width: 500px;
     max-height: 400px;
     content: "";
     clear: both;
@@ -184,10 +184,11 @@ body{
     border:10px solid rgb(87, 120, 253);
     border-radius:6px;
     height:13.75vh;
-    max-height: 150px;
+    max-height: 200px;
     content: "";
     clear: both;
     display: table;
+    min-width: 96%;
 }
 
 .btn{
