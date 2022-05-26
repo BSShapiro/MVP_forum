@@ -54,7 +54,7 @@ body{
     height: 30vh;
     max-width: 700px;
     max-height: 400px;
-    overflow: auto;
+    overflow: overlay;
 }
 
 #loginheader{
@@ -171,7 +171,7 @@ body{
     display: block;
     min-width: 150px;
     max-width: 500px;
-    overflow: auto;
+    overflow: overlay;
 }
 
 .postself{
@@ -180,7 +180,7 @@ body{
     border-radius:6px;
     height:13.75vh;
     max-height: 150px;
-    overflow: auto;
+    overflow: overlay;
 }
 
 .btn{
