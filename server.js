@@ -87,6 +87,10 @@ app.get("/api/posts", async (req, res) => {
     let data;
     try{
         data = await db.query('SELECT posts_all.post, posts_all.date, posts_all.user_id, posts_all.id, profile.user_name FROM posts_all INNER JOIN profile ON posts_all.user_id=profile.id ORDER BY date DESC;');
+        for(let i = 0; i < data.rows.length; i++){
+            data.rows[i].date = moment(data.rows[i].date).format("YYYY-MM-DD HH:mm");
+        }
+
         worked = true;
     } catch(err){
         console.error(err);
@@ -104,6 +108,9 @@ app.get("/api/posts/:id", async(req, res) => {
     let worked;
     try{
         data = await db.query(`SELECT posts_all.post, posts_all.date, posts_all.user_id, posts_all.id, profile.user_name FROM posts_all INNER JOIN profile ON posts_all.user_id=profile.id WHERE user_id = ${req.params.id} ORDER BY date DESC;`)
+        for(let i = 0; i < data.rows.length; i++){
+            data.rows[i].date = moment(data.rows[i].date).format("YYYY-MM-DD HH:mm");
+        }
         worked = true;
     } catch(err){
         console.error(err);
