@@ -54,6 +54,7 @@ body{
     height: 30vh;
     max-width: 700px;
     max-height: 400px;
+    overflow: auto;
 }
 
 #loginheader{
@@ -85,6 +86,8 @@ body{
     margin-top: 3%;
     padding-left: auto;
     padding-right: auto;
+    display: inline;
+    overflow: auto;
 }
 
 #loginbtn{
@@ -192,7 +195,8 @@ body{
     cursor: pointer;
     padding-right: auto;
     margin-top: 3.5vh;
-    position:fixed;
+    position:relative;
+    display: inline;
 }
 
 .btn:hover{
