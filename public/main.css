@@ -116,7 +116,7 @@ body{
 #makepost{
     position: absolute;
     top: 20%;
-    left: 30%;
+    left: 32%;
     background-color:rgb(42, 42, 42);
     width: 40%;
     height: 17%;
@@ -166,10 +166,9 @@ body{
 .poststyle{
     position: relative;
     top: 50%;
-    left: 30.25%;
     color: rgb(87, 120, 253);
     background-color:rgb(42, 42, 42);
-    width: 40%;
+    width: 50%;
     height: 15%;
     border: 1px solid rgb(42, 42, 42);
     border-radius:6px;
@@ -178,6 +177,7 @@ body{
     min-width: 150px;
     max-width: 500px;
     overflow: auto;
+    margin-left: 32%;
 }
 
 .poststyle::after{
