@@ -282,7 +282,6 @@ function profileFunc(data){
 
         profilePosts.appendChild(mainPost);
         profilePosts.className = 'poststyle';
-
         //delete
     }
 }
